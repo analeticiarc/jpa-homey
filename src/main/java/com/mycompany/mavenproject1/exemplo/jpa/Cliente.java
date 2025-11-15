@@ -4,6 +4,7 @@
  */
 package com.mycompany.mavenproject1.exemplo.jpa;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -15,5 +16,15 @@ import jakarta.persistence.Table;
 @PrimaryKeyJoinColumn(name="ID_CLIENTE", referencedColumnName = "ID")
 public class Cliente extends Usuario{
     
+    @Column(name = "CPF", nullable = false, unique = true, length = 11)
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
     
 }
