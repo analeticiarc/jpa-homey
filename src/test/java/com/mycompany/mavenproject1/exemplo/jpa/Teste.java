@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mavenproject1.exemplo.jpa;
 
 import jakarta.persistence.EntityManager;
@@ -13,21 +9,18 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-/**
- *
- * @author l.ribeiro.da.costa
- */
 public abstract class Teste {
 
     protected static EntityManagerFactory emf;
     protected EntityManager em;
     protected EntityTransaction et;
 
-    @BeforeClass
-    public static void setUpClass() {
-        emf = Persistence.createEntityManagerFactory("exemplo_01");
-        DbUnitUtil.inserirDados();
-    }
+
+     @BeforeClass
+     public static void setUpClass() {
+         emf = Persistence.createEntityManagerFactory("exemplo_08");
+         DbUnitUtil.inserirDados();  
+     }
 
     @AfterClass
     public static void tearDownClass() {
@@ -38,13 +31,12 @@ public abstract class Teste {
     public void setUp() {
         em = emf.createEntityManager();
         et = em.getTransaction();
-        et.begin();
     }
 
     @After
     public void tearDown() {
-        if (!et.getRollbackOnly()) {
-            et.commit();
+        if (et != null && et.isActive()) {
+            et.rollback();  
         }
         em.close();
     }

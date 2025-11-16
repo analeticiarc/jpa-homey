@@ -40,17 +40,17 @@ public class Servico {
     private Boolean disponivel;
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID", referencedColumnName = "ID") //qual valor precimos colocar no referencial de coluna?
+    @JoinColumn(name = "ID_PRESTADOR", referencedColumnName = "ID") //qual valor precimos colocar no referencial de coluna?
     private Prestador prestador;
     
-    @OneToMany(mappedBy = "contrato", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "servico", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contrato> contratos;
     
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "SERVICOS_CATEGORIAS", joinColumns = {
-        @JoinColumn(name = "ID")},
+        @JoinColumn(name = "ID_SERVICO")},
             inverseJoinColumns = {
-                @JoinColumn(name = "ID")
+                @JoinColumn(name = "ID_CATEGORIA")
             })
     private List<Categoria> categorias;
 

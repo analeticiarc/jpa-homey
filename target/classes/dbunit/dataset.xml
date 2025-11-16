@@ -1,0 +1,57 @@
+<dataset>
+
+<!--     ========================= 
+     CATEGORIAS                
+     ========================= 
+--> <CATEGORIA id="1" nome="Limpeza" dt_criacao="2024-01-10 10:00:00"/><!--
+    <CATEGORIA id="2" nome="Jardinagem" dt_criacao="2024-01-11 12:00:00"/>
+    <CATEGORIA id="3" nome="Reformas" dt_criacao="2024-01-12 08:30:00"/>
+
+     ========================= 
+     PRESTADORES (necessário p/ FK) 
+     ========================= 
+    <PRESTADOR id="1" nome="Ana Souza" dt_criacao="2024-01-05 09:00:00"/>
+    <PRESTADOR id="2" nome="Carlos Martins" dt_criacao="2024-01-06 14:20:00"/>
+
+     ========================= 
+     SERVIÇOS                  
+     ========================= 
+    <SERVICO 
+        id="1"
+        titulo="Corte de Cabelo"
+        descricao="Corte masculino ou feminino"
+        preco_base="50.00"
+        disponivel="true"
+        id_prestador="1"
+        dt_criacao="2024-02-01 09:10:00"
+    />
+
+    <SERVICO 
+        id="2"
+        titulo="Massagem Relaxante"
+        descricao="Massagem corporal completa"
+        preco_base="120.00"
+        disponivel="true"
+        id_prestador="1"
+        dt_criacao="2024-02-05 14:00:00"
+    />
+
+    <SERVICO 
+        id="3"
+        titulo="Pintura Residencial"
+        descricao="Pintura interna e externa"
+        preco_base="800.00"
+        disponivel="false"
+        id_prestador="2"
+        dt_criacao="2024-03-01 11:30:00"
+    />
+
+     ========================= 
+     SERVICOS_CATEGORIAS (tabela de junção) 
+     ========================= 
+    <SERVICOS_CATEGORIAS id_servico="1" id_categoria="1"/>
+    <SERVICOS_CATEGORIAS id_servico="2" id_categoria="2"/>
+    <SERVICOS_CATEGORIAS id_servico="3" id_categoria="3"/>
+    <SERVICOS_CATEGORIAS id_servico="1" id_categoria="2"/>-->
+
+</dataset>

@@ -35,7 +35,7 @@ public class CategoriaTest extends Teste {
 
     @Test
     public void testFindCategoriaById() {
-        Categoria c = em.find(Categoria.class, 1);
+        Categoria c = em.find(Categoria.class, (long)1);
         assertNotNull(c);
         assertEquals("Limpeza", c.getNome());
     }

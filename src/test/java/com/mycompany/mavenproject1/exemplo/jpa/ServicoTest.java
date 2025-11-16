@@ -5,6 +5,9 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
@@ -42,9 +45,23 @@ public class ServicoTest extends Teste {
     }
 
     @Test
-    public void testFindServicoById() {
+    public void testFindServicoById() throws Exception {
+
         Prestador prestador = new Prestador();
         prestador.setNome("Maria Prestadora");
+        prestador.setCpf_cnpj("00011122233");
+        prestador.setResumo("Prestadora experiente");
+        prestador.setAvaliacao(4.5);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date nascimento = sdf.parse("1990-05-20");
+        prestador.setDataNascimento(nascimento);
+
+        prestador.setEmail("maria@example.com");
+        prestador.setSenha("123456"); 
+        prestador.setUsername("maria.prestadora");
+        prestador.setTelefone("81999998888");
+
         em.getTransaction().begin();
         em.persist(prestador);
         em.getTransaction().commit();
@@ -56,6 +73,8 @@ public class ServicoTest extends Teste {
         servico.setDisponivel(true);
         servico.setPrestador(prestador);
 
+        prestador.addServico(servico);
+
         em.getTransaction().begin();
         em.persist(servico);
         em.getTransaction().commit();
@@ -65,4 +84,5 @@ public class ServicoTest extends Teste {
         assertEquals("Limpeza de Piscina", encontrado.getTitulo());
         assertEquals(prestador.getId(), encontrado.getPrestador().getId());
     }
+
 }

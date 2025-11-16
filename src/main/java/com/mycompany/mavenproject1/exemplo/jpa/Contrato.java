@@ -31,15 +31,12 @@ public class Contrato {
     private BigDecimal valor_final;
     
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @JoinColumn(name = "ID_SERVICO", referencedColumnName = "ID")
     private Servico servico;
     
     @Column(name = "DT_CRIACAO")
     protected Date dataCriacao;    
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
-    private Contrato contrato;
     
     @PrePersist
     public void setDataCriacao() {
@@ -90,11 +87,4 @@ public class Contrato {
         this.valor_final = valor_final;
     }
     
-    public Contrato getContrato() {
-        return contrato;
-    }
-
-    public void setContrato(Contrato contrato) {
-        this.contrato = contrato;
-    }
 }
