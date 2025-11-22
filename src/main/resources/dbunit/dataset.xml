@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <CATEGORIA id="2" nome="Limpeza" />
+
+
+    <!-- Linha na tabela base USUARIO -->
+    <USUARIO
+            ID="2"
+            NOME="João Silva"
+            EMAIL="joao.silva@example.com"
+            USERNAME="joaosilva"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="1990-05-15 00:00:00"
+            TELEFONE="(81) 99999-9999"
+            DT_CRIACAO="2025-11-22 00:00:00"
+            DISC_USUARIO="P" />
+
+    <!-- Linha na tabela derivada PRESTADOR; PK/FK para USUARIO.ID -->
+    <PRESTADOR
+            ID_PRESTADOR="2"
+            CPF_CNPJ="12345678901"
+            RESUMO="Prestador de serviços gerais com experiência."
+            AVALIACAO="4.8" />
+
+    <USUARIO
+            ID="3"
+            NOME="Fernanda Lima"
+            EMAIL="fernanda.lima@example.com"
+            USERNAME="fernandalima"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="2001-11-03 00:00:00"
+            TELEFONE="(81) 99999-9999"
+            DT_CRIACAO="2025-10-01 00:00:00"
+            DISC_USUARIO="C" />
+
+    <CLIENTE
+            ID_CLIENTE="3"
+            CPF="01234567890" />
+
+    <USUARIO
+            ID="4"
+            NOME="Brad Pitt"
+            EMAIL="brad.pitt@example.com"
+            USERNAME="bradpitt"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="1963-12-18 00:00:00"
+            TELEFONE="(81) 99999-9999"
+            DT_CRIACAO="2025-10-02 00:00:00"
+            DISC_USUARIO="P" />
+
+    <PRESTADOR
+            ID_PRESTADOR="4"
+            CPF_CNPJ="12345678911"
+            RESUMO="Ator renomado"
+            AVALIACAO="4.99" />
+
+
+
+    <SERVICO ID="100"
+             TITULO="Limpeza de Piscina"
+             DESCRICAO="Limpeza completa com produtos"
+             PRECO_BASE="200.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="2" />
+
+    <CONTRATO ID="2"
+              DT_INICIO="2025-10-02 00:00:00"
+              DT_FIM="2025-10-20 00:00:00"
+              VALOR_FINAL="800.00"
+              ID_SERVICO="100"
+              DT_CRIACAO="2025-10-01 00:00:00"
+    />
+
+</dataset>
