@@ -27,19 +27,15 @@ public class Contrato {
     private Date data_inicio;
     @Column(name = "DT_FIM", nullable = false)
     private Date data_fim;
-    @Column(name = "VALOR_FINAL", scale = 10, precision = 2)
+    @Column(name = "VALOR_FINAL", precision = 10, scale = 2)
     private BigDecimal valor_final;
     
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
+    @JoinColumn(name = "ID_SERVICO", referencedColumnName = "ID")
     private Servico servico;
     
     @Column(name = "DT_CRIACAO")
-    protected Date dataCriacao;    
-    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID", referencedColumnName = "ID")
-    private Contrato contrato;
+    protected Date dataCriacao;
     
     @PrePersist
     public void setDataCriacao() {
@@ -88,13 +84,5 @@ public class Contrato {
 
     public void setValor_final(BigDecimal valor_final) {
         this.valor_final = valor_final;
-    }
-    
-    public Contrato getContrato() {
-        return contrato;
-    }
-
-    public void setContrato(Contrato contrato) {
-        this.contrato = contrato;
     }
 }
