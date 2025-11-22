@@ -17,11 +17,12 @@ import org.junit.BeforeClass;
  *
  * @author l.ribeiro.da.costa
  */
+
+
 public abstract class Teste {
 
     protected static EntityManagerFactory emf;
     protected EntityManager em;
-    protected EntityTransaction et;
 
     @BeforeClass
     public static void setUpClass() {
@@ -31,21 +32,20 @@ public abstract class Teste {
 
     @AfterClass
     public static void tearDownClass() {
-        emf.close();
+        if (emf != null) {
+            emf.close();
+        }
     }
 
     @Before
     public void setUp() {
         em = emf.createEntityManager();
-        et = em.getTransaction();
-        et.begin();
     }
 
     @After
     public void tearDown() {
-        if (!et.getRollbackOnly()) {
-            et.commit();
+        if (em != null && em.isOpen()) {
+            em.close();
         }
-        em.close();
     }
 }

@@ -21,13 +21,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 public class CategoriaTest extends Teste {
+
     @Test
     public void testPersistCategoria() {
+        em.getTransaction().begin();
         Categoria c = new Categoria();
         c.setNome("Jardinagem");
-        em.getTransaction().begin();
         em.persist(c);
         em.getTransaction().commit();
         assertNotNull(c.getId());
@@ -35,7 +35,7 @@ public class CategoriaTest extends Teste {
 
     @Test
     public void testFindCategoriaById() {
-        Categoria c = em.find(Categoria.class, 1);
+        Categoria c = em.find(Categoria.class, 2L);
         assertNotNull(c);
         assertEquals("Limpeza", c.getNome());
     }

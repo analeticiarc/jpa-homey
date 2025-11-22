@@ -5,6 +5,9 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.util.Date;
+
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
@@ -20,11 +23,7 @@ import org.junit.Test;
 public class ServicoTest extends Teste {
     @Test
     public void testPersistServico() {
-        Prestador prestador = new Prestador();
-        prestador.setNome("João Prestador");
-        em.getTransaction().begin();
-        em.persist(prestador);
-        em.getTransaction().commit();
+        Prestador prestador = em.find(Prestador.class, 2L);
 
         Servico servico = new Servico();
         servico.setTitulo("Corte de Grama");
@@ -43,26 +42,8 @@ public class ServicoTest extends Teste {
 
     @Test
     public void testFindServicoById() {
-        Prestador prestador = new Prestador();
-        prestador.setNome("Maria Prestadora");
-        em.getTransaction().begin();
-        em.persist(prestador);
-        em.getTransaction().commit();
-
-        Servico servico = new Servico();
-        servico.setTitulo("Limpeza de Piscina");
-        servico.setDescricao("Limpeza completa com produtos");
-        servico.setPrecoBase(new BigDecimal("200.00"));
-        servico.setDisponivel(true);
-        servico.setPrestador(prestador);
-
-        em.getTransaction().begin();
-        em.persist(servico);
-        em.getTransaction().commit();
-
-        Servico encontrado = em.find(Servico.class, servico.getId());
+        Servico encontrado = em.find(Servico.class, 100L);
         assertNotNull(encontrado);
         assertEquals("Limpeza de Piscina", encontrado.getTitulo());
-        assertEquals(prestador.getId(), encontrado.getPrestador().getId());
     }
 }
