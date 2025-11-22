@@ -4,21 +4,8 @@
  */
 package com.mycompany.mavenproject1.exemplo.jpa;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
-import java.io.FileInputStream;
-import org.dbunit.IDatabaseTester;
-import org.dbunit.JdbcDatabaseTester;
-import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.dbunit.operation.DatabaseOperation;
-import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CategoriaTest extends Teste {

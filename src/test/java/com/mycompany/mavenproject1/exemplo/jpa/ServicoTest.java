@@ -1,23 +1,8 @@
 package com.mycompany.mavenproject1.exemplo.jpa;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
-import java.io.FileInputStream;
 import java.math.BigDecimal;
-import java.util.Date;
-
-import org.dbunit.IDatabaseTester;
-import org.dbunit.JdbcDatabaseTester;
-import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.dbunit.operation.DatabaseOperation;
-import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ServicoTest extends Teste {
