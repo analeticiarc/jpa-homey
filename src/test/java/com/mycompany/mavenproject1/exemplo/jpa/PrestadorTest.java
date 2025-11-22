@@ -2,6 +2,7 @@ package com.mycompany.mavenproject1.exemplo.jpa;
 
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -14,7 +15,7 @@ public class PrestadorTest extends Teste {
         prestador.setNome("Honda Rousey");
         prestador.setCpf_cnpj("12345678912");
         prestador.setEmail("honda.rousey@exemplo.com");
-        prestador.setDataNascimento(new Date(1987, 2, 1));
+        prestador.setDataNascimento(new Date(1987, Calendar.FEBRUARY, 1));
         prestador.setSenha("hondahonda");
         prestador.setTelefone("(99) 987654321");
         prestador.setUsername("hondarousey");
