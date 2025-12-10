@@ -20,15 +20,14 @@ public class ClienteTest extends Teste {
         cliente.setTelefone("(81) 1234567890");
         cliente.setUsername("mariafagundes");
 
-        em.getTransaction().begin();
         em.persist(cliente);
-        em.getTransaction().commit();
+        em.flush();
         assertNotNull(cliente.getId());
     }
 
     @Test
     public void testFindClienteById() {
-        Cliente c = em.find(Cliente.class, 3L);
+        Cliente c = em.find(Cliente.class, 2L);
         assertNotNull(c);
         assertEquals("Fernanda Lima", c.getNome());
     }

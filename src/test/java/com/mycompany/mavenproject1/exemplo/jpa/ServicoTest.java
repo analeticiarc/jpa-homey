@@ -17,9 +17,8 @@ public class ServicoTest extends Teste {
         servico.setDisponivel(true);
         servico.setPrestador(prestador);
 
-        em.getTransaction().begin();
         em.persist(servico);
-        em.getTransaction().commit();
+        em.flush();
 
         assertNotNull(servico.getId());
         assertNotNull(servico.getDataCriacao());
@@ -27,7 +26,7 @@ public class ServicoTest extends Teste {
 
     @Test
     public void testFindServicoById() {
-        Servico encontrado = em.find(Servico.class, 100L);
+        Servico encontrado = em.find(Servico.class, 1L);
         assertNotNull(encontrado);
         assertEquals("Limpeza de Piscina", encontrado.getTitulo());
     }

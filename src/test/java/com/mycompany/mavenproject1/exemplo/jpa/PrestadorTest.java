@@ -20,15 +20,14 @@ public class PrestadorTest extends Teste {
         prestador.setTelefone("(99) 987654321");
         prestador.setUsername("hondarousey");
 
-        em.getTransaction().begin();
         em.persist(prestador);
-        em.getTransaction().commit();
+        em.flush();
         assertNotNull(prestador.getId());
     }
 
     @Test
     public void testFindPrestadorById() {
-        Prestador c = em.find(Prestador.class, 4L);
+        Prestador c = em.find(Prestador.class, 3L);
         assertNotNull(c);
         assertEquals("Brad Pitt", c.getNome());
     }
