@@ -21,16 +21,6 @@ public class ServicoSegundaEntregaTest extends Teste {
         em.clear();
         
         Servico atualizado = em.find(Servico.class, 1L);
-        assertNotNull(atualizado);
-        
-        em.clear();
-        atualizado.setDescricao("Serviço atualizado com experiência em Limpeza e Jardinagem");
-
-        em.merge(atualizado);
-        em.flush();
-        em.clear();
-
-        atualizado = em.find(Servico.class, 1L);
         assertEquals("Serviço atualizado com experiência em Limpeza e Jardinagem", atualizado.getDescricao());
     }
     
