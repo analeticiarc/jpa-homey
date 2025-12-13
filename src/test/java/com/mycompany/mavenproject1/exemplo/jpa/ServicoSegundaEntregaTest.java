@@ -10,7 +10,7 @@ public class ServicoSegundaEntregaTest extends Teste {
     @Test
     public void testUpdateServicoComMerge()
     {
-        Servico s = em.find(Servico.class, 1L);
+        Servico s = em.find(Servico.class, 3L);
         assertNotNull(s);
         
         em.clear();
@@ -20,35 +20,35 @@ public class ServicoSegundaEntregaTest extends Teste {
         em.flush();
         em.clear();
         
-        Servico atualizado = em.find(Servico.class, 1L);
+        Servico atualizado = em.find(Servico.class, 3L);
         assertEquals("Serviço atualizado com experiência em Limpeza e Jardinagem", atualizado.getDescricao());
     }
     
     @Test
     public void testUpdateServicoSemMerge()
     {
-        Servico s = em.find(Servico.class, 1L);
+        Servico s = em.find(Servico.class, 4L);
         assertNotNull(s);
         
         s.setDescricao("Serviço atualizado com experiência em Limpeza e Jardinagem");
         em.flush();
         em.clear();
         
-        Servico atualizado = em.find(Servico.class, 1L);
+        Servico atualizado = em.find(Servico.class, 4L);
         assertEquals("Serviço atualizado com experiência em Limpeza e Jardinagem", atualizado.getDescricao());
     }
     
     @Test
     public void testRemoveServico()
     {
-        Servico s = em.find(Servico.class, 1L);
+        Servico s = em.find(Servico.class, 5L);
         assertNotNull(s);
         
         em.remove(s);
         em.flush();
         em.clear();
 
-        Servico apagado = em.find(Servico.class, 1L);
+        Servico apagado = em.find(Servico.class, 5L);
         assertNull(apagado);
     }
     

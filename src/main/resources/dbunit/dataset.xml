@@ -83,6 +83,28 @@
              DISPONIVEL="true"
              ID_PRESTADOR="1" />
 
+    <!-- Serviços adicionais para os testes da segunda entrega -->
+    <SERVICO 
+             TITULO="Jardinagem Residencial"
+             DESCRICAO="Serviço de jardinagem com experiência em plantas"
+             PRECO_BASE="300.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="3" />
+    
+    <SERVICO 
+             TITULO="Manutenção Elétrica"
+             DESCRICAO="Serviços elétricos residenciais e comerciais"
+             PRECO_BASE="400.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="1" />
+
+    <SERVICO 
+             TITULO="Pintura Residencial"
+             DESCRICAO="Serviços de pintura interna e externa"
+             PRECO_BASE="250.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="3" />
+
     <CONTRATO
               DT_INICIO="2025-10-02 00:00:00"
               DT_FIM="2025-10-20 00:00:00"
