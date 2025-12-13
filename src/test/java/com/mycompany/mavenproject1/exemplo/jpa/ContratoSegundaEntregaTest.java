@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
-public class ContratoSegundaEntregaTeste extends Teste {
+public class ContratoSegundaEntregaTest extends Teste {
         @Test
     public void testUpdateContratoComMerge() {
         Contrato c = em.find(Contrato.class, 3L);

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
-public class ServicoSegundaEntregaTeste extends Teste {
+public class ServicoSegundaEntregaTest extends Teste {
     
     @Test
     public void testUpdateServicoComMerge()

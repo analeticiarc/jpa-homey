@@ -9,13 +9,12 @@ package com.mycompany.mavenproject1.exemplo.jpa;
  * @author GPADS
  */
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import org.junit.Test;
 
-public class PrestadorSegundaEntregaTeste extends Teste {
+public class PrestadorSegundaEntregaTest extends Teste {
     
     @Test
     public void testUpdatePrestadorComMerge()
