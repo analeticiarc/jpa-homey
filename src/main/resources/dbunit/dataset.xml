@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <CATEGORIA nome="Limpeza" />
+    <CATEGORIA nome="Construção Civil" />    
+    <CATEGORIA nome="Jardinagem" />
+    <CATEGORIA nome="Cozinha" />    
+
+    <!-- Linha na tabela base USUARIO -->
+    <USUARIO
+            NOME="João Silva"
+            EMAIL="joao.silva@example.com"
+            USERNAME="joaosilva"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="1990-05-15 00:00:00"
+            TELEFONE="(81) 99999-9999"
+            DT_CRIACAO="2025-11-22 00:00:00"
+            DISC_USUARIO="P" />
+
+    <!-- Linha na tabela derivada PRESTADOR; PK/FK para USUARIO.ID -->
+    <PRESTADOR
+            ID_PRESTADOR="1"
+            CPF_CNPJ="12345678901"
+            RESUMO="Prestador de serviços gerais com experiência."
+            AVALIACAO="4.8" />
+
+    <USUARIO
+            NOME="Fernanda Lima"
+            EMAIL="fernanda.lima@example.com"
+            USERNAME="fernandalima"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="2001-11-03 00:00:00"
+            TELEFONE="(81) 99999-9999"
+            DT_CRIACAO="2025-10-01 00:00:00"
+            DISC_USUARIO="C" />
+
+    <CLIENTE
+            ID_CLIENTE="2"
+            CPF="01234567890" />
+
+    <USUARIO
+            NOME="Brad Pitt"
+            EMAIL="brad.pitt@example.com"
+            USERNAME="bradpitt"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="1963-12-18 00:00:00"
+            TELEFONE="(81) 99999-9999"
+            DT_CRIACAO="2025-10-02 00:00:00"
+            DISC_USUARIO="P" />
+
+    <PRESTADOR
+            ID_PRESTADOR="3"
+            CPF_CNPJ="12345678911"
+            RESUMO="Ator renomado"
+            AVALIACAO="4.99" />
+    
+    <USUARIO
+        NOME="Nathalia Souza"
+        EMAIL="nathalia.souza@example.com"
+        USERNAME="nathalias"
+        SENHA="senhaSegura123"
+        DT_NASCIMENTO="1998-07-20 00:00:00"
+        TELEFONE="(81) 97777-6666"
+        DT_CRIACAO="2025-10-15 00:00:00"
+        DISC_USUARIO="C" />
+
+    <CLIENTE
+        ID_CLIENTE="4"
+        CPF="12345678955" />
+
+    
+
+    <SERVICO 
+             TITULO="Limpeza de Piscina"
+             DESCRICAO="Limpeza completa com produtos"
+             PRECO_BASE="200.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="2" />
+    
+    <SERVICO 
+             TITULO="Construção Civil"
+             DESCRICAO="Serviços de construção civil na diária ou empreitada"
+             PRECO_BASE="500.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="1" />
+
+    <!-- Serviços adicionais para os testes da segunda entrega -->
+    <SERVICO 
+             TITULO="Jardinagem Residencial"
+             DESCRICAO="Serviço de jardinagem com experiência em plantas"
+             PRECO_BASE="300.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="3" />
+    
+    <SERVICO 
+             TITULO="Manutenção Elétrica"
+             DESCRICAO="Serviços elétricos residenciais e comerciais"
+             PRECO_BASE="400.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="1" />
+
+    <SERVICO 
+             TITULO="Pintura Residencial"
+             DESCRICAO="Serviços de pintura interna e externa"
+             PRECO_BASE="250.00"
+             DISPONIVEL="true"
+             ID_PRESTADOR="3" />
+
+    <CONTRATO
+              DT_INICIO="2025-10-02 00:00:00"
+              DT_FIM="2025-10-20 00:00:00"
+              VALOR_FINAL="800.00"
+              ID_SERVICO="1"
+              DT_CRIACAO="2025-10-01 00:00:00"
+    />
+    
+    <CONTRATO
+              DT_INICIO="2025-12-01 00:00:00"
+              DT_FIM="2025-12-05 00:00:00"
+              VALOR_FINAL="2400.00"
+              ID_SERVICO="2"
+              DT_CRIACAO="2025-12-01 00:00:00"
+    />
+    
+    <CONTRATO
+              DT_INICIO="2025-10-02 00:00:00"
+              DT_FIM="2025-10-20 00:00:00"
+              VALOR_FINAL="800.00"
+              ID_SERVICO="1"
+              DT_CRIACAO="2025-10-01 00:00:00"
+    />
+    
+    <CONTRATO
+              DT_INICIO="2025-11-01 00:00:00"
+              DT_FIM="2025-11-30 00:00:00"
+              VALOR_FINAL="8000.00"
+              ID_SERVICO="2"
+              DT_CRIACAO="2025-11-01 00:00:00"
+    />
+    
+    <CONTRATO
+              DT_INICIO="2025-11-01 00:00:00"
+              DT_FIM="2025-11-15 00:00:00"
+              VALOR_FINAL="4000.00"
+              ID_SERVICO="2"
+              DT_CRIACAO="2025-11-01 00:00:00"
+    />
+
+
+</dataset>
