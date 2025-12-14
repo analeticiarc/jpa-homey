@@ -1,6 +1,8 @@
 package com.mycompany.mavenproject1.exemplo.jpa;
 
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
@@ -12,7 +14,6 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import java.util.Date;
 
 
 @Entity
