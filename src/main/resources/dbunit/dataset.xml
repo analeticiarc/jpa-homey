@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+    <!-- ========== CATEGORIAS ========== -->
     <CATEGORIA nome="Limpeza" />
     <CATEGORIA nome="Construção Civil" />    
     <CATEGORIA nome="Jardinagem" />
     <CATEGORIA nome="Cozinha" />    
 
-    <!-- Linha na tabela base USUARIO -->
+    <!-- ========== USUÁRIOS E SEUS PERFIS ========== -->
+    
+    <!-- Usuário 1: João Silva - Prestador -->
     <USUARIO
             NOME="João Silva"
             EMAIL="joao.silva@example.com"
@@ -16,13 +19,13 @@
             DT_CRIACAO="2025-11-22 00:00:00"
             DISC_USUARIO="P" />
 
-    <!-- Linha na tabela derivada PRESTADOR; PK/FK para USUARIO.ID -->
     <PRESTADOR
             ID_PRESTADOR="1"
             CPF_CNPJ="12345678901"
             RESUMO="Prestador de serviços gerais com experiência."
             AVALIACAO="4.8" />
 
+    <!-- Usuário 2: Fernanda Lima - Cliente -->
     <USUARIO
             NOME="Fernanda Lima"
             EMAIL="fernanda.lima@example.com"
@@ -37,6 +40,7 @@
             ID_CLIENTE="2"
             CPF="01234567890" />
 
+    <!-- Usuário 3: Brad Pitt - Prestador -->
     <USUARIO
             NOME="Brad Pitt"
             EMAIL="brad.pitt@example.com"
@@ -53,28 +57,29 @@
             RESUMO="Ator renomado"
             AVALIACAO="4.99" />
     
+    <!-- Usuário 4: Nathalia Souza - Cliente -->
     <USUARIO
-        NOME="Nathalia Souza"
-        EMAIL="nathalia.souza@example.com"
-        USERNAME="nathalias"
-        SENHA="senhaSegura123"
-        DT_NASCIMENTO="1998-07-20 00:00:00"
-        TELEFONE="(81) 97777-6666"
-        DT_CRIACAO="2025-10-15 00:00:00"
-        DISC_USUARIO="C" />
+            NOME="Nathalia Souza"
+            EMAIL="nathalia.souza@example.com"
+            USERNAME="nathalias"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="1998-07-20 00:00:00"
+            TELEFONE="(81) 97777-6666"
+            DT_CRIACAO="2025-10-15 00:00:00"
+            DISC_USUARIO="C" />
 
     <CLIENTE
-        ID_CLIENTE="4"
-        CPF="12345678955" />
+            ID_CLIENTE="4"
+            CPF="12345678955" />
 
+    <!-- ========== SERVIÇOS ========== -->
     
-
     <SERVICO 
              TITULO="Limpeza de Piscina"
              DESCRICAO="Limpeza completa com produtos"
              PRECO_BASE="200.00"
              DISPONIVEL="true"
-             ID_PRESTADOR="2" />
+             ID_PRESTADOR="1" />
     
     <SERVICO 
              TITULO="Construção Civil"
@@ -83,7 +88,6 @@
              DISPONIVEL="true"
              ID_PRESTADOR="1" />
 
-    <!-- Serviços adicionais para os testes da segunda entrega -->
     <SERVICO 
              TITULO="Jardinagem Residencial"
              DESCRICAO="Serviço de jardinagem com experiência em plantas"
@@ -105,45 +109,181 @@
              DISPONIVEL="true"
              ID_PRESTADOR="3" />
 
+    <!-- ========== CONTRATOS ========== -->
+    
     <CONTRATO
               DT_INICIO="2025-10-02 00:00:00"
               DT_FIM="2025-10-20 00:00:00"
               VALOR_FINAL="800.00"
               ID_SERVICO="1"
-              DT_CRIACAO="2025-10-01 00:00:00"
-    />
+              DT_CRIACAO="2025-10-01 00:00:00" />
     
     <CONTRATO
               DT_INICIO="2025-12-01 00:00:00"
               DT_FIM="2025-12-05 00:00:00"
               VALOR_FINAL="2400.00"
               ID_SERVICO="2"
-              DT_CRIACAO="2025-12-01 00:00:00"
-    />
+              DT_CRIACAO="2025-12-01 00:00:00" />
     
     <CONTRATO
               DT_INICIO="2025-10-02 00:00:00"
               DT_FIM="2025-10-20 00:00:00"
               VALOR_FINAL="800.00"
               ID_SERVICO="1"
-              DT_CRIACAO="2025-10-01 00:00:00"
-    />
+              DT_CRIACAO="2025-10-01 00:00:00" />
     
     <CONTRATO
               DT_INICIO="2025-11-01 00:00:00"
               DT_FIM="2025-11-30 00:00:00"
               VALOR_FINAL="8000.00"
               ID_SERVICO="2"
-              DT_CRIACAO="2025-11-01 00:00:00"
-    />
+              DT_CRIACAO="2025-11-01 00:00:00" />
     
     <CONTRATO
               DT_INICIO="2025-11-01 00:00:00"
               DT_FIM="2025-11-15 00:00:00"
               VALOR_FINAL="4000.00"
               ID_SERVICO="2"
-              DT_CRIACAO="2025-11-01 00:00:00"
-    />
+              DT_CRIACAO="2025-11-01 00:00:00" />
 
+    <!-- ========== TIPOS DE PAGAMENTO (SINGLE_TABLE) ========== -->
+    
+    <!-- ID=1: Pix (usado nos testes de Pix e Transacao) -->
+    <TIPO_PAGAMENTO
+            NOME_CLIENTE="Fernanda Lima"
+            BANCO="Nubank"
+            AGENCIA="0001"
+            CONTA="123456"
+            CHAVE="fernanda.lima@pix.com"
+            TIPO="PIX" />
+    
+    <!-- ID=2: CartaoCredito (usado nos testes de CartaoCredito) -->
+    <TIPO_PAGAMENTO
+            NOME_CLIENTE="Nathalia Souza"
+            BANCO="Banco do Brasil"
+            AGENCIA="1234"
+            CONTA="567890"
+            NUMERO_CARTAO="5555555555554444"
+            NOME_CARTAO="NATHALIA SOUZA"
+            CODIGO_SEGURANCA="456"
+            DATA_VENCIMENTO="06/28"
+            TAXA_CREDITO="2.99"
+            PARCELAMENTO="6"
+            TIPO="CREDITO" />
+    
+    <!-- ID=3: CartaoDebito (usado nos testes de CartaoDebito) -->
+    <TIPO_PAGAMENTO
+            NOME_CLIENTE="Fernanda Lima"
+            BANCO="Itaú"
+            AGENCIA="4321"
+            CONTA="111222"
+            NUMERO_CARTAO="5500000000000004"
+            NOME_CARTAO="FERNANDA LIMA"
+            CODIGO_SEGURANCA="789"
+            DATA_VENCIMENTO="11/28"
+            TAXA_DEBITO="1.50"
+            TIPO="DEBITO" />
+
+    <!-- ========== ENDEREÇOS ========== -->
+    
+    <!-- ID=1: Endereço usado no testFind -->
+    <ENDERECO
+            RUA="Rua das Flores"
+            NUMERO="123"
+            COMPLEMENTO="Apto 101"
+            BAIRRO="Jardim Primavera"
+            CIDADE="Recife"
+            ESTADO="PE"
+            CEP="50000-000"
+            PONTO_REFERENCIA="Próximo ao mercado" />
+    
+    <!-- ID=2: Endereço usado nos testes de update/remove -->
+    <ENDERECO
+            RUA="Av. Principal"
+            NUMERO="456"
+            COMPLEMENTO="Casa"
+            BAIRRO="Centro"
+            CIDADE="Recife"
+            ESTADO="PE"
+            CEP="51000-000"
+            PONTO_REFERENCIA="Em frente à praça" />
+
+    <!-- ========== COMUNICAÇÃO (JOINED - cada tipo tem sua tabela) ========== -->
+    
+    <!-- Ligação ID=1: AUDIO (LigacaoTest.testFindLigacao espera ID=1) -->
+    <COMUNICACAO
+            DATA="2025-12-01 00:00:00"
+            HORARIO="14:30:00"
+            REMETENTE="Fernanda Lima"
+            DESTINATARIO="João Silva" />
+    
+    <LIGACAO
+            ID="1"
+            TIPO="AUDIO" />
+    
+    <!-- Ligação ID=2: VIDEO (LigacaoRecuperacaoTest usa ID=2) -->
+    <COMUNICACAO
+            DATA="2025-12-02 00:00:00"
+            HORARIO="15:00:00"
+            REMETENTE="Nathalia Souza"
+            DESTINATARIO="Brad Pitt" />
+    
+    <LIGACAO
+            ID="2"
+            TIPO="VIDEO" />
+
+    <!-- Mensagem ID=1: (MensagemTest.testFindMensagem espera ID=1) -->
+    <COMUNICACAO
+            DATA="2025-12-03 00:00:00"
+            HORARIO="10:00:00"
+            REMETENTE="Fernanda Lima"
+            DESTINATARIO="João Silva" />
+    
+    <MENSAGEM
+            ID="1"
+            CONTEUDO="Olá, gostaria de confirmar o horário do serviço." />
+    
+    <!-- Mensagem ID=2: (MensagemRecuperacaoTest usa ID=2) -->
+    <COMUNICACAO
+            DATA="2025-12-04 00:00:00"
+            HORARIO="11:00:00"
+            REMETENTE="Nathalia Souza"
+            DESTINATARIO="Brad Pitt" />
+    
+    <MENSAGEM
+            ID="2"
+            CONTEUDO="Obrigada pelo excelente trabalho!" />
+
+    <!-- ========== TRANSAÇÕES ========== -->
+    
+    <!-- ID=1: Transação PAGA -->
+    <TRANSACAO
+            STATUS="PAGO"
+            DATA_TRANSACAO="2025-10-02 00:00:00"
+            TAXA_PLATAFORMA="40.00"
+            VALOR="800.00"
+            ID_CONTRATO="1"
+            ID_CLIENTE="2"
+            ID_TIPO_PAGAMENTO="1" />
+    
+    <!-- ID=2: Transação PENDENTE (para teste de update) -->
+    <TRANSACAO
+            STATUS="PENDENTE"
+            DATA_TRANSACAO="2025-12-01 00:00:00"
+            TAXA_PLATAFORMA="120.00"
+            VALOR="2400.00"
+            ID_CONTRATO="2"
+            ID_CLIENTE="2"
+            ID_TIPO_PAGAMENTO="2" />
+    
+    <!-- ID=3: Transação PROCESSANDO (para teste de remove) -->
+    <TRANSACAO
+            STATUS="PROCESSANDO"
+            DATA_TRANSACAO="2025-11-01 00:00:00"
+            TAXA_PLATAFORMA="400.00"
+            VALOR="8000.00"
+            ID_CONTRATO="4"
+            ID_CLIENTE="4"
+            ID_TIPO_PAGAMENTO="3" />
 
 </dataset>

@@ -1,22 +1,19 @@
 package com.mycompany.mavenproject1.exemplo.jpa;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("CARTAO")
 public abstract class Cartao extends TipoPagamento {
-
     @Column(name = "NUMERO_CARTAO", length = 20)
     private String numeroCartao;
-
+    
     @Column(name = "NOME_CARTAO", length = 100)
     private String nomeCartao;
-
+    
     @Column(name = "CODIGO_SEGURANCA", length = 5)
     private String codigoSeguranca;
-
+    
     @Column(name = "DATA_VENCIMENTO", length = 7)
     private String dataVencimento;
 
