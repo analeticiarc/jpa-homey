@@ -147,8 +147,9 @@
               DT_CRIACAO="2025-11-01 00:00:00" />
 
     <!-- ========== TIPOS DE PAGAMENTO (SINGLE_TABLE) ========== -->
+    <!-- IMPORTANTE: A ordem define os IDs (1, 2, 3) -->
     
-    <!-- ID=1: Pix (usado nos testes de Pix e Transacao) -->
+    <!-- Será ID=1: Pix -->
     <TIPO_PAGAMENTO
             NOME_CLIENTE="Fernanda Lima"
             BANCO="Nubank"
@@ -157,7 +158,7 @@
             CHAVE="fernanda.lima@pix.com"
             TIPO="PIX" />
     
-    <!-- ID=2: CartaoCredito (usado nos testes de CartaoCredito) -->
+    <!-- Será ID=2: CartaoCredito -->
     <TIPO_PAGAMENTO
             NOME_CLIENTE="Nathalia Souza"
             BANCO="Banco do Brasil"
@@ -171,7 +172,7 @@
             PARCELAMENTO="6"
             TIPO="CREDITO" />
     
-    <!-- ID=3: CartaoDebito (usado nos testes de CartaoDebito) -->
+    <!-- Será ID=3: CartaoDebito -->
     <TIPO_PAGAMENTO
             NOME_CLIENTE="Fernanda Lima"
             BANCO="Itaú"
@@ -186,7 +187,7 @@
 
     <!-- ========== ENDEREÇOS ========== -->
     
-    <!-- ID=1: Endereço usado no testFind -->
+    <!-- Será ID=1 -->
     <ENDERECO
             RUA="Rua das Flores"
             NUMERO="123"
@@ -197,7 +198,7 @@
             CEP="50000-000"
             PONTO_REFERENCIA="Próximo ao mercado" />
     
-    <!-- ID=2: Endereço usado nos testes de update/remove -->
+    <!-- Será ID=2 -->
     <ENDERECO
             RUA="Av. Principal"
             NUMERO="456"
@@ -208,9 +209,9 @@
             CEP="51000-000"
             PONTO_REFERENCIA="Em frente à praça" />
 
-    <!-- ========== COMUNICAÇÃO (JOINED - cada tipo tem sua tabela) ========== -->
+    <!-- ========== COMUNICAÇÃO (JOINED - tabelas separadas) ========== -->
     
-    <!-- Ligação ID=1: AUDIO (LigacaoTest.testFindLigacao espera ID=1) -->
+    <!-- Ligação será ID=1 -->
     <COMUNICACAO
             DATA="2025-12-01 00:00:00"
             HORARIO="14:30:00"
@@ -221,7 +222,7 @@
             ID="1"
             TIPO="AUDIO" />
     
-    <!-- Ligação ID=2: VIDEO (LigacaoRecuperacaoTest usa ID=2) -->
+    <!-- Ligação será ID=2 -->
     <COMUNICACAO
             DATA="2025-12-02 00:00:00"
             HORARIO="15:00:00"
@@ -232,7 +233,7 @@
             ID="2"
             TIPO="VIDEO" />
 
-    <!-- Mensagem ID=1: (MensagemTest.testFindMensagem espera ID=1) -->
+    <!-- Mensagem será ID=1 (IDs independentes das Ligações pois é JOINED) -->
     <COMUNICACAO
             DATA="2025-12-03 00:00:00"
             HORARIO="10:00:00"
@@ -243,7 +244,7 @@
             ID="1"
             CONTEUDO="Olá, gostaria de confirmar o horário do serviço." />
     
-    <!-- Mensagem ID=2: (MensagemRecuperacaoTest usa ID=2) -->
+    <!-- Mensagem será ID=2 -->
     <COMUNICACAO
             DATA="2025-12-04 00:00:00"
             HORARIO="11:00:00"
@@ -256,7 +257,7 @@
 
     <!-- ========== TRANSAÇÕES ========== -->
     
-    <!-- ID=1: Transação PAGA -->
+    <!-- Será ID=1 -->
     <TRANSACAO
             STATUS="PAGO"
             DATA_TRANSACAO="2025-10-02 00:00:00"
@@ -266,7 +267,7 @@
             ID_CLIENTE="2"
             ID_TIPO_PAGAMENTO="1" />
     
-    <!-- ID=2: Transação PENDENTE (para teste de update) -->
+    <!-- Será ID=2 -->
     <TRANSACAO
             STATUS="PENDENTE"
             DATA_TRANSACAO="2025-12-01 00:00:00"
@@ -276,7 +277,7 @@
             ID_CLIENTE="2"
             ID_TIPO_PAGAMENTO="2" />
     
-    <!-- ID=3: Transação PROCESSANDO (para teste de remove) -->
+    <!-- Será ID=3 -->
     <TRANSACAO
             STATUS="PROCESSANDO"
             DATA_TRANSACAO="2025-11-01 00:00:00"
