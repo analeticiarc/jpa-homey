@@ -14,6 +14,9 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -45,6 +48,24 @@ public abstract class Usuario {
     @PrePersist
     public void setDataCriacao() {
         this.dataCriacao = new Date();
+    }
+    
+    @OneToMany(
+        mappedBy = "usuario",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true,
+        fetch = FetchType.LAZY
+    )
+    private List<Endereco> enderecos = new ArrayList<>();
+    
+    public void adicionarEndereco(Endereco endereco) {
+        enderecos.add(endereco);
+        endereco.setUsuario(this);
+    }
+
+    public void removerEndereco(Endereco endereco) {
+        enderecos.remove(endereco);
+        endereco.setUsuario(null);
     }
 
     public Date getDataCriacao() {
@@ -106,4 +127,10 @@ public abstract class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+    
+    
 }
