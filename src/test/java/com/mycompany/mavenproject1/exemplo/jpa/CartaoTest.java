@@ -39,7 +39,7 @@ public class CartaoTest extends Teste {
         CartaoCredito cartao = em.find(CartaoCredito.class, 1L);
         
         assertNotNull(cartao);
-        assertEquals("4111111111111111", cartao.getNumeroCartao());
+        assertEquals("4444333322221111", cartao.getNumeroCartao());
         assertEquals("JOAO SILVA", cartao.getNomeCartao());
         assertEquals("123", cartao.getCodigoSeguranca());
         assertEquals("12/27", cartao.getDataVencimento());

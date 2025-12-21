@@ -31,9 +31,9 @@ public class CartaoCreditoTest extends Teste {
 
     @Test
     public void testFindCartaoCredito() {
-        CartaoCredito cc = em.find(CartaoCredito.class, 2L);
+        CartaoCredito cc = em.find(CartaoCredito.class, 1L);
         assertNotNull(cc);
-        assertEquals("NATHALIA SOUZA", cc.getNomeCartao());
+        assertEquals("JOAO SILVA", cc.getNomeCartao());
         assertEquals(Integer.valueOf(6), cc.getParcelamento());
     }
 }

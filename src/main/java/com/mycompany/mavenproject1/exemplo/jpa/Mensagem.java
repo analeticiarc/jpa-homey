@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Table(name = "MENSAGEM")
 public class Mensagem extends Comunicacao {
 
-    @Column(name = "CONTEUDO", length = 500)
+    @Column(name = "CONTEUDO", length = 500, nullable = true)
     private String conteudo;
 
     public String getConteudo() {

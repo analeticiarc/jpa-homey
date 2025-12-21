@@ -1,3 +1,12 @@
+com\mycompany\mavenproject1\exemplo\jpa\Cartao.class
+com\mycompany\mavenproject1\exemplo\jpa\Pix.class
+com\mycompany\mavenproject1\exemplo\jpa\Mensagem.class
+com\mycompany\mavenproject1\exemplo\jpa\CartaoCredito.class
+com\mycompany\mavenproject1\exemplo\jpa\Ligacao.class
+com\mycompany\mavenproject1\exemplo\jpa\Endereco.class
+com\mycompany\mavenproject1\exemplo\jpa\CartaoDebito.class
 com\mycompany\mavenproject1\exemplo\jpa\Usuario.class
-com\mycompany\mavenproject1\exemplo\jpa\TesteJPA.class
+com\mycompany\mavenproject1\exemplo\jpa\TipoPagamento.class
+com\mycompany\mavenproject1\exemplo\jpa\Transacao.class
+com\mycompany\mavenproject1\exemplo\jpa\Comunicacao.class
 com\mycompany\mavenproject1\Mavenproject1.class

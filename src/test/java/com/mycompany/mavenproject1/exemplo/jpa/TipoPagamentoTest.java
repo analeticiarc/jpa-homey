@@ -34,13 +34,13 @@ public class TipoPagamentoTest extends Teste {
     
     @Test
     public void testFindTipoPagamento() {
-        TipoPagamento tp = em.find(CartaoCredito.class, 2L);
+        TipoPagamento tp = em.find(CartaoCredito.class, 1L);
         
         assertNotNull(tp);
-        assertEquals("Nathalia Souza", tp.getNomeCliente());
-        assertEquals("Banco do Brasil", tp.getBanco());
-        assertEquals("1234", tp.getAgencia());
-        assertEquals("567890", tp.getConta());
+        assertEquals("João Silva", tp.getNomeCliente());
+        assertEquals("Santander", tp.getBanco());
+        assertEquals("5678", tp.getAgencia());
+        assertEquals("999888", tp.getConta());
     }
     
 }

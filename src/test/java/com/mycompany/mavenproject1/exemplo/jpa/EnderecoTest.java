@@ -24,7 +24,7 @@ public class EnderecoTest extends Teste {
 
     @Test
     public void testFindEnderecoById() {
-        Endereco e = em.find(Endereco.class, 1L);
+        Endereco e = em.find(Endereco.class, 100L);
         assertNotNull(e);
         assertEquals("Rua das Flores", e.getRua());
     }

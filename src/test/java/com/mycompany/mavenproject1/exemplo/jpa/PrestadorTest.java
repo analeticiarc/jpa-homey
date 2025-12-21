@@ -27,7 +27,7 @@ public class PrestadorTest extends Teste {
 
     @Test
     public void testFindPrestadorById() {
-        Prestador c = em.find(Prestador.class, 3L);
+        Prestador c = em.find(Prestador.class, 4L);
         assertNotNull(c);
         assertEquals("Brad Pitt", c.getNome());
     }

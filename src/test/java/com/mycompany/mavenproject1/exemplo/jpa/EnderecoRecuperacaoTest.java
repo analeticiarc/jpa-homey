@@ -9,7 +9,7 @@ public class EnderecoRecuperacaoTest extends Teste {
 
     @Test
     public void testUpdateEnderecoComMerge() {
-        Endereco e = em.find(Endereco.class, 1L);
+        Endereco e = em.find(Endereco.class, 100L);
         assertNotNull(e);
 
         em.clear();
@@ -19,33 +19,33 @@ public class EnderecoRecuperacaoTest extends Teste {
         em.flush();
         em.clear();
 
-        Endereco atualizado = em.find(Endereco.class, 1L);
+        Endereco atualizado = em.find(Endereco.class, 100L);
         assertEquals("Casa com portão azul", atualizado.getComplemento());
     }
 
     @Test
     public void testUpdateEnderecoSemMerge() {
-        Endereco e = em.find(Endereco.class, 2L);
+        Endereco e = em.find(Endereco.class, 200L);
         assertNotNull(e);
 
         e.setBairro("Centro Atualizado");
         em.flush();
         em.clear();
 
-        Endereco atualizado = em.find(Endereco.class, 2L);
+        Endereco atualizado = em.find(Endereco.class, 200L);
         assertEquals("Centro Atualizado", atualizado.getBairro());
     }
 
     @Test
     public void testRemoveEndereco() {
-        Endereco e = em.find(Endereco.class, 2L);
+        Endereco e = em.find(Endereco.class, 101L);
         assertNotNull(e);
 
         em.remove(e);
         em.flush();
         em.clear();
 
-        Endereco apagado = em.find(Endereco.class, 2L);
+        Endereco apagado = em.find(Endereco.class, 101L);
         assertNull(apagado);
     }
 }

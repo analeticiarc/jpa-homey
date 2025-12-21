@@ -47,15 +47,15 @@ public class ContratoSegundaEntregaTest extends Teste {
     
     @Test
     public void testRemoveContrato() {
-        Contrato c = em.find(Contrato.class, 1L);
+        Contrato c = em.find(Contrato.class, 3L);
         assertNotNull(c);
 
         em.remove(c);
         em.flush();
         em.clear();
 
-        Contrato apagado = em.find(Contrato.class, 1L);
+        Contrato apagado = em.find(Contrato.class, 3L);
         assertNull(apagado);
     }
-    
+
 }

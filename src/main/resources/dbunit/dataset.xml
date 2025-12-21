@@ -40,7 +40,24 @@
             ID_CLIENTE="2"
             CPF="01234567890" />
 
-    <!-- Usuário 3: Brad Pitt - Prestador -->
+    <!-- Usuário 3: teste -->
+    
+    <USUARIO
+        NOME="Cliente Teste"
+        EMAIL="cliente.teste@example.com"
+        USERNAME="clienteteste"
+        SENHA="123"
+        DT_NASCIMENTO="2000-01-01 00:00:00"
+        TELEFONE="(81) 90000-0000"
+        DT_CRIACAO="2025-12-01 00:00:00"
+        DISC_USUARIO="C" />
+
+    <CLIENTE
+        ID_CLIENTE="3"
+        CPF="99999999999" />
+
+
+    <!-- Usuário 4: Brad Pitt - Prestador -->
     <USUARIO
             NOME="Brad Pitt"
             EMAIL="brad.pitt@example.com"
@@ -52,12 +69,12 @@
             DISC_USUARIO="P" />
 
     <PRESTADOR
-            ID_PRESTADOR="3"
+            ID_PRESTADOR="4"
             CPF_CNPJ="12345678911"
             RESUMO="Ator renomado"
             AVALIACAO="4.99" />
     
-    <!-- Usuário 4: Nathalia Souza - Cliente -->
+    <!-- Usuário 5: Nathalia Souza - Cliente -->
     <USUARIO
             NOME="Nathalia Souza"
             EMAIL="nathalia.souza@example.com"
@@ -69,8 +86,26 @@
             DISC_USUARIO="C" />
 
     <CLIENTE
-            ID_CLIENTE="4"
+            ID_CLIENTE="5"
             CPF="12345678955" />
+
+    <!-- Usuário 6: Leonardo DiCaprio - Prestador -->
+    <USUARIO
+            NOME="Leonardo DiCaprio"
+            EMAIL="leonardo.dicaprio@example.com"
+            USERNAME="leodicaprio"
+            SENHA="senhaSegura123"
+            DT_NASCIMENTO="1974-11-11 00:00:00"
+            TELEFONE="(81) 98888-7777"
+            DT_CRIACAO="2025-12-20 00:00:00"
+            DISC_USUARIO="P" />
+
+    <PRESTADOR
+            ID_PRESTADOR="6"
+            CPF_CNPJ="98765432100"
+            RESUMO="Prestador especializado em serviços ambientais."
+            AVALIACAO="4.85" />
+
 
     <!-- ========== SERVIÇOS ========== -->
     
@@ -147,9 +182,22 @@
               DT_CRIACAO="2025-11-01 00:00:00" />
 
     <!-- ========== TIPOS DE PAGAMENTO (SINGLE_TABLE) ========== -->
-    <!-- IMPORTANTE: A ordem define os IDs (1, 2, 3) -->
     
-    <!-- Será ID=1: Pix -->
+    <!-- ID=1: CartaoCredito - Para teste UPDATE -->
+    <TIPO_PAGAMENTO
+            NOME_CLIENTE="João Silva"
+            BANCO="Santander"
+            AGENCIA="5678"
+            CONTA="999888"
+            NUMERO_CARTAO="4444333322221111"
+            NOME_CARTAO="JOAO SILVA"
+            CODIGO_SEGURANCA="123"
+            DATA_VENCIMENTO="12/27"
+            TAXA_CREDITO="3.50"
+            PARCELAMENTO="6"
+            TIPO="CREDITO" />
+
+    <!-- ID=2: Pix -->
     <TIPO_PAGAMENTO
             NOME_CLIENTE="Fernanda Lima"
             BANCO="Nubank"
@@ -157,22 +205,9 @@
             CONTA="123456"
             CHAVE="fernanda.lima@pix.com"
             TIPO="PIX" />
+
     
-    <!-- Será ID=2: CartaoCredito -->
-    <TIPO_PAGAMENTO
-            NOME_CLIENTE="Nathalia Souza"
-            BANCO="Banco do Brasil"
-            AGENCIA="1234"
-            CONTA="567890"
-            NUMERO_CARTAO="5555555555554444"
-            NOME_CARTAO="NATHALIA SOUZA"
-            CODIGO_SEGURANCA="456"
-            DATA_VENCIMENTO="06/28"
-            TAXA_CREDITO="2.99"
-            PARCELAMENTO="6"
-            TIPO="CREDITO" />
-    
-    <!-- Será ID=3: CartaoDebito -->
+    <!-- ID=3: CartaoDebito -->
     <TIPO_PAGAMENTO
             NOME_CLIENTE="Fernanda Lima"
             BANCO="Itaú"
@@ -184,43 +219,106 @@
             DATA_VENCIMENTO="11/28"
             TAXA_DEBITO="1.50"
             TIPO="DEBITO" />
+    
+    <!-- ID=4: CartaoCredito - Para teste UPDATE SEM MERGE -->
+    <TIPO_PAGAMENTO
+            NOME_CLIENTE="João Silva"
+            BANCO="Santander"
+            AGENCIA="5678"
+            CONTA="999888"
+            NUMERO_CARTAO="4444333322221111"
+            NOME_CARTAO="JOAO SILVA"
+            CODIGO_SEGURANCA="123"
+            DATA_VENCIMENTO="12/27"
+            TAXA_CREDITO="3.50"
+            PARCELAMENTO="12"
+            TIPO="CREDITO" />
+    
+    <!-- ID=5: CartaoCredito - Para teste REMOVER (SEM TRANSAÇÕES) -->
+    <TIPO_PAGAMENTO
+            NOME_CLIENTE="Brad Pitt"
+            BANCO="Bradesco"
+            AGENCIA="9999"
+            CONTA="777666"
+            NUMERO_CARTAO="3333222211110000"
+            NOME_CARTAO="BRAD PITT"
+            CODIGO_SEGURANCA="999"
+            DATA_VENCIMENTO="03/29"
+            TAXA_CREDITO="2.50"
+            PARCELAMENTO="3"
+            TIPO="CREDITO" />
+
+    <!-- ID=6: CartaoDebito - Para teste REMOVER (SEM TRANSAÇÕES) -->
+    <TIPO_PAGAMENTO
+        NOME_CLIENTE="João Silva"
+        BANCO="Caixa"
+        AGENCIA="3333"
+        CONTA="444555"
+        NUMERO_CARTAO="6011000000000004"
+        NOME_CARTAO="JOAO SILVA"
+        CODIGO_SEGURANCA="321"
+        DATA_VENCIMENTO="09/27"
+        TAXA_DEBITO="1.00"
+        TIPO="DEBITO" />
+
+    <!-- ID=7: Pix - Para teste REMOVER (SEM TRANSAÇÕES) -->
+    <TIPO_PAGAMENTO
+        NOME_CLIENTE="Cliente Pix Teste"
+        BANCO="Inter"
+        AGENCIA="0001"
+        CONTA="999999"
+        CHAVE="teste.remocao@pix.com"
+        TIPO="PIX" />
+
 
     <!-- ========== ENDEREÇOS ========== -->
     
-    <!-- Será ID=1 -->
     <ENDERECO
-            RUA="Rua das Flores"
-            NUMERO="123"
-            COMPLEMENTO="Apto 101"
-            BAIRRO="Jardim Primavera"
-            CIDADE="Recife"
-            ESTADO="PE"
-            CEP="50000-000"
-            PONTO_REFERENCIA="Próximo ao mercado" />
-    
-    <!-- Será ID=2 -->
+        ID="100"
+        RUA="Rua das Flores"
+        NUMERO="123"
+        COMPLEMENTO="Apto 101"
+        BAIRRO="Jardim Primavera"
+        CIDADE="Recife"
+        ESTADO="PE"
+        CEP="50000-000"
+        PONTO_REFERENCIA="Próximo ao mercado" />
+
     <ENDERECO
-            RUA="Av. Principal"
-            NUMERO="456"
-            COMPLEMENTO="Casa"
-            BAIRRO="Centro"
-            CIDADE="Recife"
-            ESTADO="PE"
-            CEP="51000-000"
-            PONTO_REFERENCIA="Em frente à praça" />
+        ID="101"
+        RUA="Av. Principal"
+        NUMERO="456"
+        COMPLEMENTO="Casa"
+        BAIRRO="Centro"
+        CIDADE="Recife"
+        ESTADO="PE"
+        CEP="51000-000"
+        PONTO_REFERENCIA="Em frente à praça" />
+
+    <ENDERECO
+        ID="200"
+        RUA="Rua Teste Sem Merge"
+        NUMERO="999"
+        COMPLEMENTO="Teste"
+        BAIRRO="Bairro Original"
+        CIDADE="Recife"
+        ESTADO="PE"
+        CEP="52000-000"
+        PONTO_REFERENCIA="Teste JPA" />
+
 
     <!-- ========== COMUNICAÇÃO (JOINED - tabelas separadas) ========== -->
     
-    <!-- Ligação será ID=1 -->
     <COMUNICACAO
-            DATA="2025-12-01 00:00:00"
-            HORARIO="14:30:00"
-            REMETENTE="Fernanda Lima"
-            DESTINATARIO="João Silva" />
-    
+        DATA="2025-12-01 00:00:00"
+        HORARIO="14:30:00"
+        REMETENTE="Fernanda Lima"
+        DESTINATARIO="João Silva" />
+
     <LIGACAO
-            ID="1"
-            TIPO="AUDIO" />
+        ID="1"
+        TIPO="AUDIO" />
+
     
     <!-- Ligação será ID=2 -->
     <COMUNICACAO
@@ -256,6 +354,7 @@
             CONTEUDO="Obrigada pelo excelente trabalho!" />
 
     <!-- ========== TRANSAÇÕES ========== -->
+    <!-- IMPORTANTE: ID=5 (CartaoCredito do Brad) NÃO tem transações para poder ser deletado -->
     
     <!-- Será ID=1 -->
     <TRANSACAO

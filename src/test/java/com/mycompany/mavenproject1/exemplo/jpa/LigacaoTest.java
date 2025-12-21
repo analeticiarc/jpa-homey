@@ -19,12 +19,13 @@ public class LigacaoTest extends Teste {
         assertNotNull(l.getId());
     }
 
+    
 
     @Test
     public void testFindLigacao() {
         Ligacao l = em.find(Ligacao.class, 1L);
         assertNotNull(l);
-        assertEquals("AUDIO", l.getTipo());
+        assertEquals("AUDIO", l.getTipo());  
     }
 }
 

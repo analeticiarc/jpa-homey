@@ -9,11 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
+import jakarta.persistence.DiscriminatorType;
 
 @Entity
 @Table(name = "TIPO_PAGAMENTO")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TIPO")
+@DiscriminatorColumn(name = "TIPO", discriminatorType = DiscriminatorType.STRING)
 public abstract class TipoPagamento {
 
     @Id

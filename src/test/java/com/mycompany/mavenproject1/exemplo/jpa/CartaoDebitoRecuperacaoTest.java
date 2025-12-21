@@ -40,14 +40,12 @@ public class CartaoDebitoRecuperacaoTest extends Teste {
 
     @Test
     public void testRemoveCartaoDebito() {
-        CartaoDebito cd = em.find(CartaoDebito.class, 3L);
+        CartaoDebito cd = em.find(CartaoDebito.class, 6L); 
         assertNotNull(cd);
-
         em.remove(cd);
         em.flush();
         em.clear();
-
-        CartaoDebito apagado = em.find(CartaoDebito.class, 3L);
+        CartaoDebito apagado = em.find(CartaoDebito.class, 6L);
         assertNull(apagado);
     }
 }

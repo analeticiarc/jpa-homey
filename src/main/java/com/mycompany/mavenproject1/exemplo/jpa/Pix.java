@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 @DiscriminatorValue("PIX")
 public class Pix extends TipoPagamento {
 
-    @Column(name = "CHAVE", nullable = false, length = 100)
+    @Column(name = "CHAVE", nullable = true, length = 100)
     private String chave;
 
     public String getChave() {

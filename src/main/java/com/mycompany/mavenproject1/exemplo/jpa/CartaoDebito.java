@@ -10,7 +10,7 @@ import jakarta.persistence.Entity;
 @DiscriminatorValue("DEBITO")
 public class CartaoDebito extends Cartao {
 
-    @Column(name = "TAXA_DEBITO", precision = 10, scale = 2)
+    @Column(name = "TAXA_DEBITO", precision = 10, scale = 2, nullable = true)
     private BigDecimal taxaDebito;
 
     public BigDecimal getTaxaDebito() {

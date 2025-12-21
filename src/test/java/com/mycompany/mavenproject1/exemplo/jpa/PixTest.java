@@ -24,7 +24,7 @@ public class PixTest extends Teste {
 
     @Test
     public void testFindPix() {
-        Pix pix = em.find(Pix.class, 1L);
+        Pix pix = em.find(Pix.class, 2L);
         assertNotNull(pix);
         assertEquals("fernanda.lima@pix.com", pix.getChave());
     }

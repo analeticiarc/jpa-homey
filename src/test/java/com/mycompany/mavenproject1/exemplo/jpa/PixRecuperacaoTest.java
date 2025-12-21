@@ -9,7 +9,7 @@ public class PixRecuperacaoTest extends Teste {
 
     @Test
     public void testUpdatePixComMerge() {
-        Pix pix = em.find(Pix.class, 1L);
+        Pix pix = em.find(Pix.class, 2L);
         assertNotNull(pix);
 
         em.clear();
@@ -19,33 +19,33 @@ public class PixRecuperacaoTest extends Teste {
         em.flush();
         em.clear();
 
-        Pix atualizado = em.find(Pix.class, 1L);
+        Pix atualizado = em.find(Pix.class, 2L);
         assertEquals("nova-chave@pix.com", atualizado.getChave());
     }
 
     @Test
     public void testUpdatePixSemMerge() {
-        Pix pix = em.find(Pix.class, 1L);
+        Pix pix = em.find(Pix.class, 2L);
         assertNotNull(pix);
 
         pix.setBanco("Banco Atualizado");
         em.flush();
         em.clear();
 
-        Pix atualizado = em.find(Pix.class, 1L);
+        Pix atualizado = em.find(Pix.class, 2L);
         assertEquals("Banco Atualizado", atualizado.getBanco());
     }
 
     @Test
     public void testRemovePix() {
-        Pix pix = em.find(Pix.class, 1L);
+        Pix pix = em.find(Pix.class, 7L);
         assertNotNull(pix);
 
         em.remove(pix);
         em.flush();
         em.clear();
 
-        Pix apagado = em.find(Pix.class, 1L);
+        Pix apagado = em.find(Pix.class, 7L);
         assertNull(apagado);
     }
 }

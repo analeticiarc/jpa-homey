@@ -50,17 +50,16 @@ public class ClienteSegundaEntregaTest extends Teste {
     
     
     @Test
-    public void testRemoveCliente()
-    {
-        Cliente c = em.find(Cliente.class, 4L);
+    public void testRemoveCliente() {
+        Cliente c = em.find(Cliente.class, 5L);
         assertNotNull(c);
-        
+
         em.remove(c);
         em.flush();
         em.clear();
-        
-        Cliente apagado = em.find(Cliente.class, 4L);
+
+        Cliente apagado = em.find(Cliente.class, 5L);
         assertNull(apagado);
     }
-    
+
 }
