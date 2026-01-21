@@ -274,7 +274,6 @@
     <!-- ========== ENDEREÇOS ========== -->
     
     <ENDERECO
-        ID="100"
         RUA="Rua das Flores"
         NUMERO="123"
         COMPLEMENTO="Apto 101"
@@ -285,7 +284,6 @@
         PONTO_REFERENCIA="Próximo ao mercado" />
 
     <ENDERECO
-        ID="101"
         RUA="Av. Principal"
         NUMERO="456"
         COMPLEMENTO="Casa"
@@ -296,7 +294,6 @@
         PONTO_REFERENCIA="Em frente à praça" />
 
     <ENDERECO
-        ID="200"
         RUA="Rua Teste Sem Merge"
         NUMERO="999"
         COMPLEMENTO="Teste"
@@ -305,6 +302,16 @@
         ESTADO="PE"
         CEP="52000-000"
         PONTO_REFERENCIA="Teste JPA" />
+
+    <ENDERECO
+        RUA="Rua Professor Mario Ramos"
+        NUMERO="173"
+        COMPLEMENTO="aptto 103"
+        BAIRRO="Candeias"
+        CIDADE="Jaboatao dos Guararapes"
+        ESTADO="PE"
+        CEP="54450-120"
+        PONTO_REFERENCIA="Padaria Candeias" />
 
 
     <!-- ========== COMUNICAÇÃO (JOINED - IDs compartilhados!) ========== -->
