@@ -22,7 +22,7 @@ public class MensagemTest extends Teste {
 
     @Test
     public void testFindMensagem() {
-        Mensagem m = em.find(Mensagem.class, 1L);
+        Mensagem m = em.find(Mensagem.class, 3L);
         assertNotNull(m);
         assertEquals("Olá, gostaria de confirmar o horário do serviço.", m.getConteudo());
     }

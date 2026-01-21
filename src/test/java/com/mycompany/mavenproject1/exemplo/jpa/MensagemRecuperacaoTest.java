@@ -9,7 +9,7 @@ public class MensagemRecuperacaoTest extends Teste {
 
     @Test
     public void testUpdateMensagemComMerge() {
-        Mensagem m = em.find(Mensagem.class, 1L);
+        Mensagem m = em.find(Mensagem.class, 4L);
         assertNotNull(m);
 
         em.clear();
@@ -19,33 +19,33 @@ public class MensagemRecuperacaoTest extends Teste {
         em.flush();
         em.clear();
 
-        Mensagem atualizada = em.find(Mensagem.class, 1L);
+        Mensagem atualizada = em.find(Mensagem.class, 4L);
         assertEquals("Mensagem atualizada", atualizada.getConteudo());
     }
 
     @Test
     public void testUpdateMensagemSemMerge() {
-        Mensagem m = em.find(Mensagem.class, 2L);
+        Mensagem m = em.find(Mensagem.class, 5L);
         assertNotNull(m);
 
         m.setConteudo("Nova mensagem sem merge");
         em.flush();
         em.clear();
 
-        Mensagem atualizada = em.find(Mensagem.class, 2L);
+        Mensagem atualizada = em.find(Mensagem.class, 5L);
         assertEquals("Nova mensagem sem merge", atualizada.getConteudo());
     }
 
     @Test
     public void testRemoveMensagem() {
-        Mensagem m = em.find(Mensagem.class, 2L);
+        Mensagem m = em.find(Mensagem.class, 3L);
         assertNotNull(m);
 
         em.remove(m);
         em.flush();
         em.clear();
 
-        Mensagem apagada = em.find(Mensagem.class, 2L);
+        Mensagem apagada = em.find(Mensagem.class, 3L);
         assertNull(apagada);
     }
 }

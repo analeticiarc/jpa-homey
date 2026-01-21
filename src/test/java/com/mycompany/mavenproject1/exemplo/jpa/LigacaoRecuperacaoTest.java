@@ -38,14 +38,14 @@ public class LigacaoRecuperacaoTest extends Teste {
 
     @Test
     public void testRemoveLigacao() {
-        Ligacao l = em.find(Ligacao.class, 2L);
+        Ligacao l = em.find(Ligacao.class, 6L);
         assertNotNull(l);
 
         em.remove(l);
         em.flush();
         em.clear();
 
-        Ligacao apagada = em.find(Ligacao.class, 2L);
+        Ligacao apagada = em.find(Ligacao.class, 6L);
         assertNull(apagada);
     }
 }

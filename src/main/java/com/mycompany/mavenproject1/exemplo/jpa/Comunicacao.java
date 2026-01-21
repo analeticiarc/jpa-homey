@@ -4,6 +4,8 @@ import java.sql.Time;
 import java.util.Date;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +18,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "COMUNICACAO")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(
+    name = "DISC_COMUNICACAO",
+    discriminatorType = DiscriminatorType.STRING,length = 1)
 public abstract class Comunicacao {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

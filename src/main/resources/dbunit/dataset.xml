@@ -307,51 +307,83 @@
         PONTO_REFERENCIA="Teste JPA" />
 
 
-    <!-- ========== COMUNICAÇÃO (JOINED - tabelas separadas) ========== -->
-    
-    <COMUNICACAO
-        DATA="2025-12-01 00:00:00"
-        HORARIO="14:30:00"
-        REMETENTE="Fernanda Lima"
-        DESTINATARIO="João Silva" />
+    <!-- ========== COMUNICAÇÃO (JOINED - IDs compartilhados!) ========== -->
 
+
+    <!-- Ligação AUDIO -->
+    <!-- COMUNICACAO (pai) -->
+    <COMUNICACAO
+        DATA="2025-12-01"
+        HORARIO="14:30:00"
+        REMETENTE="Ana"
+        DESTINATARIO="João"
+        DISC_COMUNICACAO="L" />
+
+    <!-- LIGACAO (filha) -->
     <LIGACAO
-        ID="1"
+        ID_LIGACAO="1"
         TIPO="AUDIO" />
 
-    
-    <!-- Ligação será ID=2 -->
-    <COMUNICACAO
-            DATA="2025-12-02 00:00:00"
-            HORARIO="15:00:00"
-            REMETENTE="Nathalia Souza"
-            DESTINATARIO="Brad Pitt" />
-    
-    <LIGACAO
-            ID="2"
-            TIPO="VIDEO" />
 
-    <!-- Mensagem será ID=1 (IDs independentes das Ligações pois é JOINED) -->
+    <!-- Ligação VIDEO -->
     <COMUNICACAO
-            DATA="2025-12-03 00:00:00"
-            HORARIO="10:00:00"
-            REMETENTE="Fernanda Lima"
-            DESTINATARIO="João Silva" />
-    
-    <MENSAGEM
-            ID="1"
-            CONTEUDO="Olá, gostaria de confirmar o horário do serviço." />
-    
-    <!-- Mensagem será ID=2 -->
+        DATA="2025-12-02 00:00:00"
+        HORARIO="15:00:00"
+        REMETENTE="Nathalia Souza"
+        DESTINATARIO="Brad Pitt"
+        DISC_COMUNICACAO="L" />
+
+    <LIGACAO
+        ID_LIGACAO="2"
+        TIPO="VIDEO" />
+
+    <!-- Mensagem -->
     <COMUNICACAO
-            DATA="2025-12-04 00:00:00"
-            HORARIO="11:00:00"
-            REMETENTE="Nathalia Souza"
-            DESTINATARIO="Brad Pitt" />
-    
+        DATA="2025-12-03 00:00:00"
+        HORARIO="10:00:00"
+        REMETENTE="Fernanda Lima"
+        DESTINATARIO="João Silva"
+        DISC_COMUNICACAO="M" />
+
     <MENSAGEM
-            ID="2"
-            CONTEUDO="Obrigada pelo excelente trabalho!" />
+        ID_MENSAGEM="3"
+        CONTEUDO="Olá, gostaria de confirmar o horário do serviço." />
+
+    <!-- Mensagem -->
+    <COMUNICACAO
+        DATA="2025-12-04 00:00:00"
+        HORARIO="11:00:00"
+        REMETENTE="Nathalia Souza"
+        DESTINATARIO="Brad Pitt"
+        DISC_COMUNICACAO="M" />
+
+    <MENSAGEM
+        ID_MENSAGEM="4"
+        CONTEUDO="Obrigada pelo excelente trabalho!" />
+
+    <!-- Mensagem para teste de REMOVE -->
+    <COMUNICACAO
+        DATA="2025-12-05 00:00:00"
+        HORARIO="12:00:00"
+        REMETENTE="Cliente Teste"
+        DESTINATARIO="Prestador Teste"
+        DISC_COMUNICACAO="M" />
+
+    <MENSAGEM
+        ID_MENSAGEM="5"
+        CONTEUDO="Mensagem para ser deletada nos testes." />
+
+    <!-- Ligação AUDIO para teste de REMOVE -->
+    <COMUNICACAO
+        DATA="2025-12-06 00:00:00"
+        HORARIO="16:00:00"
+        REMETENTE="Teste Remetente"
+        DESTINATARIO="Teste Destinatario"
+        DISC_COMUNICACAO="L" />
+
+    <LIGACAO
+        ID_LIGACAO="6"
+        TIPO="AUDIO" />
 
     <!-- ========== TRANSAÇÕES ========== -->
     <!-- IMPORTANTE: ID=5 (CartaoCredito do Brad) NÃO tem transações para poder ser deletado -->
