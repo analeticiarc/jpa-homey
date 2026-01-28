@@ -3,8 +3,19 @@ package com.mycompany.mavenproject1.exemplo.jpa;
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
+
+import jakarta.persistence.TypedQuery;
+import java.util.HashSet;
+import java.util.Set;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CartaoCreditoTest extends Teste {
 
@@ -36,5 +47,37 @@ public class CartaoCreditoTest extends Teste {
         assertEquals("JOAO SILVA", cc.getNomeCartao());
         assertEquals(Integer.valueOf(6), cc.getParcelamento());
     }
+
+    // TODO: SELECT simples
+    @Test
+    public void testSelecionarPorIdComJPQL() {
+        TypedQuery<CartaoCredito> q = em.createQuery(
+            "SELECT c FROM CartaoCredito c WHERE c.id = :id", CartaoCredito.class
+        );
+        q.setParameter("id", 8L);
+
+        List<CartaoCredito> resultado = q.getResultList();
+        assertFalse("Cartão do dataset deveria existir pelo id", resultado.isEmpty());
+        CartaoCredito cc = resultado.get(0);
+        assertEquals("CARLOS HENRIQUE", cc.getNomeCartao());
+        assertEquals((Integer)6, cc.getParcelamento());
+    }
+
+    // TODO: Acessando entidades usando funcões do JPQL
+    @Test
+    public void testPegarTransacaoPeloCartaoUsado() {
+        TypedQuery<Transacao> q = em.createQuery(
+            "SELECT t FROM Transacao c WHERE t.tipoPagamento.id = :id", Transacao.class
+        );
+        q.setParameter("id", 8L);
+        List<Transacao> resultado = q.getResultList();
+        assertFalse("Transação deveria existir para o cartao pelo id", resultado.isEmpty());
+        Transacao t = resultado.get(0);
+        assertEquals(1, resultado.size()); // só há uma transação para esse cartão
+        assertEquals("PAGO", t.getStatus());
+        assertEquals(new BigDecimal("4000"), t.getValor());
+    }
+
+
 }
 

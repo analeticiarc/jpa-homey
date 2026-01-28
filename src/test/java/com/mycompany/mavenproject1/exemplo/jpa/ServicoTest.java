@@ -1,9 +1,13 @@
 package com.mycompany.mavenproject1.exemplo.jpa;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
+
+import jakarta.persistence.TypedQuery;
 
 public class ServicoTest extends Teste {
     @Test
@@ -30,4 +34,17 @@ public class ServicoTest extends Teste {
         assertNotNull(encontrado);
         assertEquals("Limpeza de Piscina", encontrado.getTitulo());
     }
+
+    // TODO: Usa JOIN FETCH
+    @Test
+    public void testFetchContratos() {
+        TypedQuery<Servico> q = em.createQuery(
+            "SELECT s FROM Servico s JOIN FETCH s.contratos", Servico.class
+        );
+        List<Servico> resultado = q.getResultList();
+        Servico s = resultado.get(0);
+        assertNotNull(s.getContratos());
+        assertEquals(s.getContratos().get(0).getValor_final(), new BigDecimal("800"));
+    }
+
 }
