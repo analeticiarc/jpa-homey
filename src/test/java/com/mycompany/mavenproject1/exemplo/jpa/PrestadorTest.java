@@ -2,11 +2,18 @@ package com.mycompany.mavenproject1.exemplo.jpa;
 
 import org.junit.Test;
 
+import jakarta.persistence.TypedQuery;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class PrestadorTest extends Teste {
     @Test
@@ -27,8 +34,9 @@ public class PrestadorTest extends Teste {
 
     @Test
     public void testFindPrestadorById() {
-        Prestador c = em.find(Prestador.class, 3L);
+        Prestador c = em.find(Prestador.class, 4L);
         assertNotNull(c);
         assertEquals("Brad Pitt", c.getNome());
     }
+    
 }

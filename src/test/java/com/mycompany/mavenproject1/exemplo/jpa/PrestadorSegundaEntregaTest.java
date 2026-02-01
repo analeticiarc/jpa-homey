@@ -50,14 +50,14 @@ public class PrestadorSegundaEntregaTest extends Teste {
     @Test
     public void testRemovePrestador()
     {
-        Prestador p = em.find(Prestador.class, 1L);
+        Prestador p = em.find(Prestador.class, 6L);
         assertNotNull(p);
         
         em.remove(p);
         em.flush();
         em.clear();
         
-        Prestador apagado = em.find(Prestador.class, 1L);
+        Prestador apagado = em.find(Prestador.class, 6L);
         assertNull(apagado);
     }
     
