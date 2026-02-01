@@ -30,7 +30,7 @@ public class ServicoJpqlTest extends Teste {
     @Test
     public void testSomaLeftJoinGroupByTotalValorContratos() {
         TypedQuery<Object[]> q = em.createQuery(
-            "SELECT s.titulo, COALESCE(SUM(c.valor_final), 0') FROM Servico s LEFT JOIN s.contratos c WHERE s.id = :id GROUP BY s.titulo", Object[].class
+            "SELECT s.titulo, COALESCE(SUM(c.valor_final), 0) FROM Servico s LEFT JOIN s.contratos c WHERE s.id = :id GROUP BY s.titulo", Object[].class
         ).setParameter("id", 1L);
         List<Object[]> resultado = q.getResultList();
         Object[] row = resultado.get(0);
@@ -43,14 +43,14 @@ public class ServicoJpqlTest extends Teste {
     @Test
     public void testContratoMaisCaroServico() {
         TypedQuery<Object[]> q = em.createQuery(
-            "SELECT s.titulo, c.valor_final FROM Servico s LEFT JOIN s.contratos c WHERE s.id = :id ORDER BY c.valor_final", Object[].class
+            "SELECT s.titulo, c.valor_final FROM Servico s LEFT JOIN s.contratos c WHERE s.id = :id ORDER BY c.valor_final DESC", Object[].class
         ).setParameter("id", 2L);
         List<Object[]> resultado = q.getResultList();
         Object[] row = resultado.get(0);
         String titulo = (String)row[0];
         BigDecimal valorFinal = (BigDecimal)row[1];
         assertEquals(titulo, "Construção Civil");
-        assertEquals(valorFinal, new BigDecimal("4000.00")); // Contrato mais caro do serviço id 2
+        assertEquals(valorFinal, new BigDecimal("8000.00")); // Contrato mais caro do serviço id 2
     }
 
 

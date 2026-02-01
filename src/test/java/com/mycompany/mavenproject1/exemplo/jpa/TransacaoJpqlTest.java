@@ -14,15 +14,25 @@ public class TransacaoJpqlTest extends Teste {
     @Test
     public void testPegarMediaTransacao() {
         TypedQuery<Object[]> q = em.createQuery(
-            "SELECT t.cliente.nome, AVG(t.valor) FROM Transacao t LEFT JOIN  WHERE t.cliente.id = :id", Object[].class
+            "SELECT t.cliente.nome, AVG(t.valor) FROM Transacao t " +
+            "WHERE t.cliente.id = :id " +
+            "GROUP BY t.cliente.nome",
+            Object[].class
         );
-        q.setParameter("id", 1L);
-        List<Object[]> resultado = q.getResultList();
-        Object[] row = resultado.get(0);
-        String nome = (String)row[0];
-        BigDecimal valorMedio = (BigDecimal)row[1];
+        q.setParameter("id", 2L); // Fernanda Lima
 
-        assertEquals(nome, "Fernanda Lima");
-        assertEquals(valorMedio, new BigDecimal("1600.00"));
+        List<Object[]> resultado = q.getResultList();
+        assertFalse("Nenhuma transação encontrada para o cliente", resultado.isEmpty());
+
+        Object[] row = resultado.get(0);
+        String nome = (String) row[0];
+
+        Double valorDouble = (Double) row[1];
+        BigDecimal valorMedio = BigDecimal.valueOf(valorDouble);
+
+        assertEquals("Fernanda Lima", nome);
+        assertEquals(new BigDecimal("2400.0"), valorMedio);
     }
+
+
 }

@@ -59,7 +59,7 @@ public class ClienteJpqlTest extends Teste {
                 "SELECT SUBSTRING(c.telefone, 2, 2) FROM Cliente c WHERE c.id = :id",
                 String.class
         )
-            .setParameter("id", 1L)
+            .setParameter("id", 2L)
             .getSingleResult();
         
         assertEquals(ddd, "81");
@@ -68,12 +68,14 @@ public class ClienteJpqlTest extends Teste {
     @Test
     public void testTamanhoTelefone()
     {
-        Long tamanhoTelefone = em.createQuery(
+        Integer tamanhoTelefone = em.createQuery(
                 "SELECT LENGTH(c.telefone) FROM Cliente c WHERE c.id = :id",
-                Long.class
+                Integer.class
         )
-            .setParameter("id", 1L)
+            .setParameter("id", 2L)
             .getSingleResult();
-        assertEquals(tamanhoTelefone, Long.valueOf(15));
+
+        assertEquals(Integer.valueOf(15), tamanhoTelefone);
     }
+
 }

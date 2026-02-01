@@ -10,33 +10,37 @@ import jakarta.persistence.TypedQuery;
 
 public class TipoPagamentoJpqlTest extends Teste {
     @Test
-    void testTipoPagamentoLikeSantander() {
+    public void testTipoPagamentoLikeSantander() {
         TypedQuery<TipoPagamento> q = em.createQuery(
-            "SELECT t FROM TipoPagamento t WHERE t.banco LIKE '%Santander%'", TipoPagamento.class
+            "SELECT t FROM TipoPagamento t WHERE t.banco LIKE '%Santander%'",
+            TipoPagamento.class
         );
+
         List<TipoPagamento> resultado = q.getResultList();
-        assertEquals(resultado.size(), 2);
+        assertEquals(2, resultado.size());
     }
 
     @Test
-    void testLower() {
-        TypedQuery<TipoPagamento> q = em.createQuery(
-            "SELECT LOWER(t.banco) FROM TipoPagamento t WHERE t.banco = :banco", TipoPagamento.class
+    public void testLower() {
+        TypedQuery<String> q = em.createQuery(
+            "SELECT LOWER(t.banco) FROM TipoPagamento t WHERE t.banco LIKE '%Santander%'",
+            String.class
         );
-        q.setParameter("banco", "Santander");
-        List<TipoPagamento> resultado = q.getResultList();
-        assertEquals(resultado.size(), 2);
-        assertEquals(resultado.get(0).getBanco(), "santander");
+
+        List<String> resultado = q.getResultList();
+        assertEquals(2, resultado.size());
+        assertEquals("santander", resultado.get(0));
     }
 
     @Test
-    void testUpper() {
-        TypedQuery<TipoPagamento> q = em.createQuery(
-            "SELECT UPPER(t.banco) FROM TipoPagamento t WHERE t.banco = :banco", TipoPagamento.class
+    public void testUpper() {
+        TypedQuery<String> q = em.createQuery(
+            "SELECT UPPER(t.banco) FROM TipoPagamento t WHERE t.banco LIKE '%Santander%'",
+            String.class
         );
-        q.setParameter("banco", "Santander");
-        List<TipoPagamento> resultado = q.getResultList();
-        assertEquals(resultado.size(), 2);
-        assertEquals(resultado.get(0).getBanco(), "SANTANDER");
+
+        List<String> resultado = q.getResultList();
+        assertEquals(2, resultado.size());
+        assertEquals("SANTANDER", resultado.get(0));
     }
 }

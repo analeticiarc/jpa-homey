@@ -13,13 +13,18 @@ import jakarta.persistence.TypedQuery;
 public class CartaoDebitoJpqlTest extends Teste {
     @Test
     public void testFindCartaoDebito() {
-        TypedQuery<Object[]> q = em.createQuery(
-            "SELECT MIN(t.valor) FROM Transacao t WHERE t.tipoPagamento.TIPO = :tipo", Object[].class
+
+        TypedQuery<BigDecimal> q = em.createQuery(
+            "SELECT MIN(t.valor) " +
+            "FROM Transacao t " +
+            "WHERE TYPE(t.tipoPagamento) = CartaoDebito",
+            BigDecimal.class
         );
-        q.setParameter("tipo", "DEBITO");
-        List<Object[]> resultado = q.getResultList();
-        Object[] row = resultado.get(0);
-        BigDecimal valorMinimo = (BigDecimal)row[0];
-        assertEquals(valorMinimo, new BigDecimal("8000.00"));
-    }    
+
+        BigDecimal valorMinimo = q.getSingleResult();
+
+        assertNotNull(valorMinimo);
+        assertEquals(new BigDecimal("8000.00"), valorMinimo);
+    }
+
 }
