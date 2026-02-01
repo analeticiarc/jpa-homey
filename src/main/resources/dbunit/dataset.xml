@@ -327,6 +327,16 @@
         CEP="54450-120"
         PONTO_REFERENCIA="Padaria Candeias" />
 
+    <ENDERECO
+        RUA="Rua Carlos Fagundes"
+        NUMERO="431"
+        COMPLEMENTO="Casa"
+        BAIRRO="Socorro"
+        CIDADE="Jaboatao dos Guararapes"
+        ESTADO="PE"
+        CEP="54210-001"
+        PONTO_REFERENCIA=" Ao lado da igreja " />
+
 
     <!-- ========== COMUNICAÇÃO (JOINED - IDs compartilhados!) ========== -->
 
@@ -441,11 +451,11 @@
 
     <!-- Será ID=4 -->
     <TRANSACAO
-            STATUS="PAGO"
-            DATA_TRANSACAO="2025-12-02 00:00:00"
-            TAXA_PLATAFORMA="100.00"
-            VALOR="4000.00"
-            ID_CONTRATO="1"
-            ID_CLIENTE="2"
-            ID_TIPO_PAGAMENTO="8" />
+        STATUS="PAGO"
+        DATA_TRANSACAO="2025-12-02 00:00:00"
+        TAXA_PLATAFORMA="100.00"
+        VALOR="4000.00"
+        ID_CONTRATO="1"
+        ID_CLIENTE="2"
+        ID_TIPO_PAGAMENTO="8" />
 </dataset>

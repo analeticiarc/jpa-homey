@@ -56,6 +56,42 @@ public class EnderecoJpqlTest extends Teste{
         assertNotNull(total);
         assertEquals(Long.valueOf(4), total);
     }
+
+    @Test
+    public void testRuaENumeroPorId()
+    {
+        String concatenacao = em.createQuery(
+                "select concat(e.rua, ', ', r.numero) FROM Endereco e WHERE e.id = :id",
+                String.class
+        )
+        .setParameter("id", 1L)
+        .getSingleResult();
+        
+        assertEquals(concatenacao, "Rua das Flores, 123");
+    }
+
+    @Test
+    public void testQuantasRuas()
+    {
+        Long totalRuas = em.createQuery(
+                "select count(e) FROM Endereco e WHERE LOCATE('Rua', e.rua) > 0",
+                Long.class
+        )
+        .getSingleResult();
+        assertEquals(totalRuas, Long.valueOf(3));
+    }
+
+    @Test
+    public void testTrimEndereco()
+    {
+        String referencia = em.createQuery(
+                "select trim(e.ponto_referencia) FROM Endereco e WHERE e.id = :id",
+                String.class
+        )
+        .setParameter("id", 5L)
+        .getSingleResult();
+        assertEquals("Ao lado da igreja", referencia);
+    }
     
     
 }

@@ -51,6 +51,29 @@ public class ClienteJpqlTest extends Teste {
         assertNotNull(total);
         assertEquals(Long.valueOf(3), total);
     }
-    
-    
+
+    @Test
+    public void testDDDTelefone()
+    {
+        String ddd = em.createQuery(
+                "SELECT SUBSTRING(c.telefone, 2, 2) FROM Cliente c WHERE c.id = :id",
+                String.class
+        )
+            .setParameter("id", 1L)
+            .getSingleResult();
+        
+        assertEquals(ddd, "81");
+    }
+
+    @Test
+    public void testTamanhoTelefone()
+    {
+        Long tamanhoTelefone = em.createQuery(
+                "SELECT LENGTH(c.telefone) FROM Cliente c WHERE c.id = :id",
+                Long.class
+        )
+            .setParameter("id", 1L)
+            .getSingleResult();
+        assertEquals(tamanhoTelefone, Long.valueOf(15));
+    }
 }
